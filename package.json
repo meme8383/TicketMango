@@ -1,0 +1,44 @@
+{
+  "name": "TicketMango2",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
+    "ci": "payload migrate && pnpm build",
+    "generate:types": "payload generate:types",
+    "standalone-script": "node ./src/scripts/standalone-script.js"
+  },
+  "engines": {
+    "node": "^18.20.2 || >=20.6.0"
+  },
+  "dependencies": {
+    "@payloadcms/db-mongodb": "3.0.0-beta.32",
+    "@payloadcms/db-postgres": "3.0.0-beta.32",
+    "@payloadcms/next": "3.0.0-beta.32",
+    "@payloadcms/richtext-lexical": "3.0.0-beta.32",
+    "@payloadcms/richtext-slate": "3.0.0-beta.32",
+    "@payloadcms/ui": "3.0.0-beta.32",
+    "cross-env": "^7.0.3",
+    "graphql": "^16.8.1",
+    "next": "14.3.0-canary.37",
+    "payload": "3.0.0-beta.32",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sharp": "0.32.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.3",
+    "typescript": "^5.4.5"
+  }
+}
