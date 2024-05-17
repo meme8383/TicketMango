@@ -1,5 +1,5 @@
 {
-  "name": "TicketMango2",
+  "name": "TicketMango",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -26,11 +26,14 @@
     "@payloadcms/ui": "3.0.0-beta.32",
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
+    "lucide-react": "^0.378.0",
     "next": "14.3.0-canary.37",
     "payload": "3.0.0-beta.32",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sharp": "0.32.6"
+    "sharp": "0.32.6",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20.12.12",
@@ -39,6 +42,7 @@
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.3",
+    "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
   }
 }
