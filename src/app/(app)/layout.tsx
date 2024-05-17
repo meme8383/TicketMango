@@ -1,6 +1,7 @@
 import React from 'react';
-import './globals.scss';
+import './globals.css';
 import { Inter } from 'next/font/google';
+import { cn } from '@/lib/utils';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -9,8 +10,10 @@ const inter = Inter({
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <html className={inter.className}>
-      <body>{children}</body>
+    <html lang="en" className="h-full">
+      <body className={cn('relative h-full font-sans anatialiased dark', inter.className)}>
+        <main className="relative flex flex-col min-h-screen">{children}</main>
+      </body>
     </html>
   );
 };
