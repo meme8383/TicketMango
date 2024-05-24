@@ -15,8 +15,8 @@ const Background = () => {
 
   useEffect(() => {
     setCircles([
-      { id: 1, x: 300, y: -800, color: '#FF7F2A', direction: Math.PI / 4 },
-      { id: 2, x: -800, y: 300, color: '#55D400', direction: -Math.PI / 6 },
+      { id: 1, x: 300, y: -400, color: '#FF7F2A', direction: Math.PI / 4 },
+      { id: 2, x: -400, y: 300, color: '#55D400', direction: -Math.PI / 6 },
     ]);
 
     const interval = setInterval(() => {
@@ -90,7 +90,7 @@ const Background = () => {
   }, []);
 
   return (
-    <div className="h-full w-full fixed">
+    <div className="h-full w-full left-0 top-0 -z-50">
       {circles.map((circle) => (
         <div
           key={circle.id}
