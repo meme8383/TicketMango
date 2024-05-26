@@ -10,31 +10,33 @@ interface Circle {
   direction: number;
 }
 
+const SPEED = 1;
+
 const Background = () => {
   const [circles, setCircles] = useState<Circle[]>([]);
 
   useEffect(() => {
     setCircles([
-      { id: 1, x: 300, y: -400, color: '#FF7F2A', direction: Math.PI / 4 },
-      { id: 2, x: -400, y: 300, color: '#55D400', direction: -Math.PI / 6 },
+      { id: 1, x: 300, y: -600, color: '#FF7F2A', direction: Math.PI / 4 },
+      { id: 2, x: -600, y: 300, color: '#55D400', direction: -Math.PI / 6 },
     ]);
 
     const interval = setInterval(() => {
       setCircles((circles) => {
         circles = circles.map((circle) => {
-          const x = circle.x + Math.cos(circle.direction);
-          const y = circle.y + Math.sin(circle.direction);
+          const x = circle.x + Math.cos(circle.direction) * SPEED;
+          const y = circle.y + Math.sin(circle.direction) * SPEED;
           return { ...circle, x, y };
         });
 
         for (const circle of circles) {
           if (
-            circle.x > window.innerWidth ||
-            circle.y > window.innerHeight ||
+            circle.x > window.innerWidth + 200 ||
+            circle.y > window.innerHeight + 200 ||
             circle.x < -800 ||
             circle.y < -800
           ) {
-            const edge = Math.random() * 4;
+            const edge = Math.floor(Math.random() * 4);
             circles = [
               ...circles.filter((c) => c.id !== circle.id),
               {
@@ -43,54 +45,30 @@ const Background = () => {
                   edge === 0
                     ? -800
                     : edge === 2
-                    ? window.innerWidth + 1600
-                    : Math.random() * window.innerWidth,
+                    ? window.innerWidth + 200
+                    : (Math.random() * window.innerWidth) / 1.5,
                 y:
                   edge === 1
                     ? -800
                     : edge === 3
-                    ? window.innerHeight + 1600
-                    : Math.random() * window.innerHeight,
+                    ? window.innerHeight + 200
+                    : (Math.random() * window.innerHeight) / 1.5,
                 color: circle.color,
                 direction: Math.random() * (Math.PI / 2) - Math.PI / 4 + edge * (Math.PI / 2),
               },
             ];
           }
-          console.log(circle.x, circle.y);
         }
 
         return circles;
       });
-      console.log(circles);
-
-      for (const circle of circles) {
-        if (
-          circle.x > window.innerWidth / 2 ||
-          circle.y > window.innerHeight / 2 ||
-          circle.x < 0 ||
-          circle.y < 0
-        ) {
-          setCircles((circles) => [
-            ...circles,
-            {
-              id: circles.length + 1,
-              x: circle.x,
-              y: circle.y,
-              color: circle.color,
-              direction: Math.random() * Math.PI * 2,
-            },
-          ]);
-          console.log(circles.length);
-        }
-        console.log(circle.x, circle.y);
-      }
     }, 1000 / 60);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="h-full w-full left-0 top-0 -z-50">
+    <div className="fixed -z-50 top-0 left-0">
       {circles.map((circle) => (
         <div
           key={circle.id}
@@ -103,7 +81,7 @@ const Background = () => {
             borderRadius: '50%',
             backgroundColor: circle.color,
             filter: 'blur(150px)',
-            opacity: '0.8',
+            opacity: 0.8,
           }}
         />
       ))}

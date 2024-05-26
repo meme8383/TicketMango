@@ -74,3 +74,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.text-glow-lg {
+  text-shadow: 0 0 40px hsl(var(--primary));
+}
+
+.text-glow-md {
+  text-shadow: 0 0 20px hsla(24, 100%, 58%, 0.3);
+}
