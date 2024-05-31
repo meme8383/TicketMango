@@ -74,7 +74,7 @@ const Page = () => {
         <div className="mt-20">
           <h1 className="text-6xl font-bold">Explore our Plans</h1>
           <div className="md:grid md:grid-cols-3 mt-8 gap-2">
-            <div className="bg-background rounded-3xl p-5 flex flex-col justify-between">
+            <div className="bg-background rounded-3xl p-5 flex flex-col justify-between shadow-2xl">
               <div>
                 <h2 className="text-5xl font-bold text-center mb-5">Free</h2>
                 <p className="text-2xl font-semibold mb-5">
@@ -108,7 +108,7 @@ const Page = () => {
                 </Link>
               </div>
             </div>
-            <div className="bg-background rounded-3xl p-5 flex flex-col justify-between">
+            <div className="bg-background rounded-3xl p-5 flex flex-col justify-between shadow-2xl">
               <div>
                 <h2 className="text-5xl font-bold text-center mb-5">Plus</h2>
                 <p className="text-2xl font-semibold mb-5">
@@ -142,7 +142,7 @@ const Page = () => {
                 </Link>
               </div>
             </div>
-            <div className="bg-background rounded-3xl p-5 flex flex-col justify-between">
+            <div className="bg-background rounded-3xl p-5 flex flex-col justify-between shadow-2xl">
               <div>
                 <h2 className="text-5xl font-bold text-center mb-5">Enterprise</h2>
                 <p className="text-2xl font-semibold mb-5">
