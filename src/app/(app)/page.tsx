@@ -1,6 +1,7 @@
 import ScrollText from '@/components/ScrollText';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
@@ -10,10 +11,13 @@ const Page = () => {
       <div className="container justify-center max-w-6xl pb-52">
         <div className="md:grid md:grid-cols-2 mt-20 items-center">
           <div className="justify-center">
-            <div className="bg-blue-950 w-[300px] h-[500px] mx-auto">
-              Placeholder
-              {/* TODO */}
-            </div>
+            <Image
+              src="/iPhone 14 Pro Max.png"
+              alt="iPhone 14 Pro Max"
+              width={600}
+              height={1000}
+              className="mx-auto z-10"
+            />
           </div>
           <div className="flex justify-left ml-3">
             <div>
