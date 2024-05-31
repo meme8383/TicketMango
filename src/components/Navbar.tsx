@@ -13,8 +13,8 @@ const Navbar = () => {
         </Link>
         <Link href="/">
           <h1 className="font-bold ml-2 text-3xl">
-            <span className="text-primary">TICKET</span>
-            <span className="text-secondary">MANGO</span>
+            <span className="text-secondary">TICKET</span>
+            <span className="text-primary">MANGO</span>
           </h1>
         </Link>
         <div className="flex ml-auto">
