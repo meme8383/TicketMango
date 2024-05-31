@@ -12,7 +12,7 @@ const Navbar = () => {
           <Icons.logo className="size-10" />
         </Link>
         <Link href="/">
-          <h1 className="font-bold ml-2 text-xl">
+          <h1 className="font-bold ml-2 text-3xl">
             <span className="text-primary">TICKET</span>
             <span className="text-secondary">MANGO</span>
           </h1>

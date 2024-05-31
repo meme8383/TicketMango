@@ -68,7 +68,7 @@ const Background = () => {
   }, []);
 
   return (
-    <div className="fixed -z-50 top-0 left-0">
+    <div className="fixed -z-20 top-0 left-0">
       {circles.map((circle) => (
         <div
           key={circle.id}
