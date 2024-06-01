@@ -14,8 +14,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html lang="en" className="h-full">
       <body className={cn('relative h-full font-sans anatialiased dark', inter.className)}>
-        <Navbar />
-        <main className="relative flex flex-col min-h-screen">{children}</main>
+        <main className="relative flex flex-col min-h-screen">
+          <Navbar />
+          <div className="flex-grow flex-1">{children}</div>
+        </main>
         <Background />
       </body>
     </html>
