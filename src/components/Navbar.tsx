@@ -3,6 +3,7 @@ import { Icons } from './Icons';
 import Link from 'next/link';
 import { buttonVariants } from './ui/button';
 import { cn } from '@/lib/utils';
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 
 const Navbar = () => {
   return (
@@ -18,10 +19,10 @@ const Navbar = () => {
           </h1>
         </Link>
         <div className="flex ml-auto">
-          <Link href="/login" className={cn(buttonVariants({ variant: 'link' }), 'text-white')}>
-            Log In
+          <Link href="/sign-in" className={cn(buttonVariants({ variant: 'link' }), 'text-white')}>
+            Sign In
           </Link>
-          <Link href="/register" className={buttonVariants({ variant: 'link' })}>
+          <Link href="/sign-up" className={buttonVariants({ variant: 'link' })}>
             Sign Up
           </Link>
         </div>
