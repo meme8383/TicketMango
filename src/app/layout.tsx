@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import Background from '@/components/Background';
 import Navbar from '@/components/Navbar';
 import { ClerkProvider } from '@clerk/nextjs';
+import { dark } from '@clerk/themes';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -13,7 +14,11 @@ const inter = Inter({
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}
+    >
       <html lang="en" className="h-full">
         <body className={cn('relative h-full font-sans anatialiased dark', inter.className)}>
           <main className="relative flex flex-col min-h-screen">

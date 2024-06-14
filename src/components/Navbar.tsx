@@ -3,7 +3,8 @@ import { Icons } from './Icons';
 import Link from 'next/link';
 import { buttonVariants } from './ui/button';
 import { cn } from '@/lib/utils';
-import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { SignInButton, SignOutButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { dark } from '@clerk/themes';
 
 const Navbar = () => {
   return (
@@ -19,12 +20,21 @@ const Navbar = () => {
           </h1>
         </Link>
         <div className="flex ml-auto">
-          <Link href="/sign-in" className={cn(buttonVariants({ variant: 'link' }), 'text-white')}>
-            Sign In
-          </Link>
-          <Link href="/sign-up" className={buttonVariants({ variant: 'link' })}>
-            Sign Up
-          </Link>
+          <SignedOut>
+            <Link href="/sign-in" className={cn(buttonVariants({ variant: 'link' }), 'text-white')}>
+              Sign In
+            </Link>
+            <Link href="/sign-up" className={buttonVariants({ variant: 'link' })}>
+              Sign Up
+            </Link>
+          </SignedOut>
+          <SignedIn>
+            <UserButton
+              appearance={{
+                baseTheme: dark,
+              }}
+            />
+          </SignedIn>
         </div>
       </nav>
     </div>
