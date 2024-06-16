@@ -19,7 +19,7 @@ import { useState } from 'react';
 
 const formSchema = z.object({
   name: z.string().min(1),
-  start_date: z.coerce.date().optional(),
+  start_date: z.coerce.date().optional(), // https://github.com/react-hook-form/resolvers/issues/73#issuecomment-1647321322
   end_date: z.coerce.date().optional(),
   max_attendees: z.coerce.number().int().positive().optional(),
   location: z.string().optional(),
@@ -51,7 +51,7 @@ const Page = () => {
       console.error(error);
       setSubmitting(false);
     } else {
-      router.push('/dashboard'); // Redirect to a success page or somewhere else
+      router.push('/dashboard');
     }
   };
 
@@ -81,7 +81,15 @@ const Page = () => {
                 <FormItem>
                   <FormLabel>Start Date</FormLabel>
                   <FormControl>
-                    <Input type="date" {...field} />
+                    <Input
+                      type="date"
+                      {...field}
+                      value={
+                        field.value instanceof Date
+                          ? field.value.toISOString().split('T')[0]
+                          : field.value
+                      } // https://github.com/shadcn-ui/ui/issues/2385#issuecomment-1988397883
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -94,7 +102,15 @@ const Page = () => {
                 <FormItem>
                   <FormLabel>End Date</FormLabel>
                   <FormControl>
-                    <Input type="date" {...field} />
+                    <Input
+                      type="date"
+                      {...field}
+                      value={
+                        field.value instanceof Date
+                          ? field.value.toISOString().split('T')[0]
+                          : field.value
+                      } // https://github.com/shadcn-ui/ui/issues/2385#issuecomment-1988397883
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -139,7 +155,7 @@ const Page = () => {
                 </FormItem>
               )}
             />
-            {error && <FormMessage>{error.message}</FormMessage>}
+            {error && <FormMessage>An unknown error has occurred.</FormMessage>}
             <div className="flex items-center">
               <Button type="submit" disabled={submitting}>
                 Submit

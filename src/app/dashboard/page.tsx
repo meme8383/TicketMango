@@ -48,7 +48,7 @@ const Page = () => {
         </Link>
       </div>
       {loading && <Loader2 size={32} className="animate-spin" />}
-      {error && <p className="text-red-500">{error.message}</p>}
+      {error && <p className="text-red-500">An unknown error has occurred</p>}
       {events && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
           {events.map((event: any) => (
