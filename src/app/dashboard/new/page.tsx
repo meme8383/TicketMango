@@ -36,7 +36,7 @@ const Page = () => {
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     setSubmitting(true);
-    const { error } = await supabase.from('events').insert([
+    const { error } = await supabase!.from('events').insert([
       {
         name: data.name,
         start_date: data.start_date,

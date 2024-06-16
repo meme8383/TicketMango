@@ -27,7 +27,7 @@ const Page = () => {
   }, [supabase, stale]);
 
   const getHandleDelete = (id: string) => async () => {
-    supabase
+    supabase!
       .from('events')
       .delete()
       .eq('id', id)
