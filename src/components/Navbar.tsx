@@ -3,6 +3,9 @@ import { Icons } from './Icons';
 import Link from 'next/link';
 import { buttonVariants } from './ui/button';
 import { cn } from '@/lib/utils';
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { dark } from '@clerk/themes';
+import { ArrowRight } from 'lucide-react';
 
 const Navbar = () => {
   return (
@@ -18,12 +21,28 @@ const Navbar = () => {
           </h1>
         </Link>
         <div className="flex ml-auto">
-          <Link href="/login" className={cn(buttonVariants({ variant: 'link' }), 'text-white')}>
-            Log In
-          </Link>
-          <Link href="/register" className={buttonVariants({ variant: 'link' })}>
-            Sign Up
-          </Link>
+          <SignedOut>
+            <Link href="/sign-in" className={cn(buttonVariants({ variant: 'link' }), 'text-white')}>
+              Sign In
+            </Link>
+            <Link href="/sign-up" className={buttonVariants({ variant: 'link' })}>
+              Sign Up
+            </Link>
+          </SignedOut>
+          <SignedIn>
+            <Link
+              href="/dashboard"
+              className={cn(buttonVariants({ variant: 'link' }), 'text-white')}
+            >
+              Dashboard
+              <ArrowRight size={16} className="ml-1" />
+            </Link>
+            <UserButton
+              appearance={{
+                baseTheme: dark,
+              }}
+            />
+          </SignedIn>
         </div>
       </nav>
     </div>
