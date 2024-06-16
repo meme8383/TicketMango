@@ -3,8 +3,9 @@ import { Icons } from './Icons';
 import Link from 'next/link';
 import { buttonVariants } from './ui/button';
 import { cn } from '@/lib/utils';
-import { SignInButton, SignOutButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';
+import { ArrowRight } from 'lucide-react';
 
 const Navbar = () => {
   return (
@@ -29,6 +30,13 @@ const Navbar = () => {
             </Link>
           </SignedOut>
           <SignedIn>
+            <Link
+              href="/dashboard"
+              className={cn(buttonVariants({ variant: 'link' }), 'text-white')}
+            >
+              Dashboard
+              <ArrowRight size={16} className="ml-1" />
+            </Link>
             <UserButton
               appearance={{
                 baseTheme: dark,
